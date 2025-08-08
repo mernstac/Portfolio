@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Arslan Khalid — Full Stack Developer</title>
+  <meta name="description" content="Arslan Khalid — Full Stack Developer. Expert in Django, Python, React, Bootstrap, Shopify, WordPress, MongoDB, SQLite3, and Flutter. Portfolio showcasing projects, skills and experience." />
+  <meta name="keywords" content="Arslan Khalid, Full Stack, Django, Python, React, Shopify, WordPress, MongoDB, SQLite3, Flutter, Portfolio" />
+  <meta name="author" content="Arslan Khalid" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Arslan Khalid — Full Stack Developer" />
+  <meta property="og:description" content="Portfolio showcasing projects, skills and experience in Django, Python, React, Shopify, WordPress & databases." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://source.unsplash.com/1200x630/?technology,code" />
+  <meta property="og:url" content="https://your-portfolio-url.example/" />
+
+  <!-- Bootstrap CSS (for grid & utility) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Tailwind Play CDN (for utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#04060a;        /* deep black */
+      --nav:#071129;       /* navy */
+      --accent:#0b74ff;    /* bright blue */
+      --gold:#d4af37;      /* gold */
+      --muted:#9aa6b2;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,#03040a 0%, #071129 100%);
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* Header */
+    header.site-header{
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(2,6,23,0.6), rgba(6,10,27,0.4));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+    }
+    header .brand { font-weight:700; color: white; letter-spacing: 0.2px; }
+    header .nav-link { color: rgba(230,238,248,0.9); }
+    header .nav-link:hover { color: var(--accent); }
+
+    /* Hero (solid gradient background) */
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #071129 0%, #021027 60%, #00121a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.04);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 1100px;
+      width: 100%;
+      box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+    }
+    .hero-title{
+      font-size: clamp(1.6rem, 3.8vw, 3rem);
+      font-weight: 800;
+      line-height: 1.02;
+      color: #ffffff;
+      text-shadow: 0 8px 30px rgba(11,116,255,0.06);
+    }
+    .hero-tag{
+      color: var(--muted);
+      margin-top:.6rem;
+      margin-bottom:1.2rem;
+    }
+    .btn-accent{
+      background: linear-gradient(90deg,var(--accent), #6ea8ff);
+      color: #00101a;
+      border: none;
+      padding: .7rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(11,116,255,0.12);
+      font-weight:600;
+    }
+    .btn-outline-gold{
+      border:1px solid rgba(212,175,55,0.14);
+      color: var(--gold);
+      background: transparent;
+      padding: .6rem .9rem;
+      border-radius:8px;
+      box-shadow: none;
+    }
+
+    /* Sections */
+    section.content-section{
+      padding: 4rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-heading{
+      display:flex;
+      align-items:center;
+      gap:.8rem;
+      margin-bottom:1.2rem;
+    }
+    .section-heading h2{
+      margin:0;
+      color: #fff;
+      font-size:1.6rem;
+      font-weight:700;
+    }
+    .accent-line{ height:4px; width:56px; background: linear-gradient(90deg,var(--accent), var(--gold)); border-radius:4px; }
+
+    /* cards */
+    .card-dark{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      border-radius:12px;
+      padding:1.2rem;
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .card-dark:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(2,6,23,0.6);
+    }
+    .muted { color: var(--muted); }
+
+    /* skills bars */
+    .skill-bar { background: rgba(255,255,255,0.06); height:10px; border-radius:999px; overflow:hidden; }
+    .skill-fill { height:100%; background: linear-gradient(90deg,var(--accent), #56b2ff); border-radius:999px; }
+
+    /* timeline */
+    .timeline { position: relative; padding-left: 18px; }
+    .timeline::before { content:''; position:absolute; left:6px; top:0; bottom:0; width:2px; background: linear-gradient(180deg,var(--accent),var(--gold)); border-radius:2px; opacity:0.8; }
+    .timeline-item { position: relative; margin-bottom: 2rem; padding-left: 1.15rem; }
+    .timeline-item::before { content:''; position:absolute; left:-6px; top:4px; width:12px; height:12px; border-radius:50%; background: var(--gold); box-shadow: 0 0 6px rgba(212,175,55,0.8); }
+
+    /* projects grid */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.1rem; }
+
+    /* hobbies */
+    .hobby { display:flex; gap:.8rem; align-items:center; padding:.7rem 1rem; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); }
+
+    /* contact */
+    .contact-card { max-width:820px; margin:0 auto; }
+
+    /* footer */
+    footer.site-footer { margin-top:3rem; padding:2rem 1rem; border-top:1px solid rgba(255,255,255,0.03); text-align:center; color:var(--muted); }
+
+    /* responsive tweaks */
+    @media (max-width: 767px){
+      .hero-card { padding:1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header sticky-top">
+    <div class="container d-flex align-items-center justify-content-between py-3">
+      <div class="d-flex align-items-center gap-3">
+        <div style="width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:700;color:#041018">AK</div>
+        <div>
+          <div class="brand" style="font-weight:800;color:#fff">Arslan Khalid</div>
+          <div class="muted" style="font-size:12px">Full Stack Developer</div>
+        </div>
+      </div>
+
+      <nav class="d-none d-md-flex align-items-center gap-4">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#hobbies">Hobbies</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="btn btn-sm btn-outline-light" href="Arslan.CV.pdf" download>Download CV</a>
+      </nav>
+
+      <div class="d-md-none">
+        <button class="btn btn-sm btn-outline-light" id="mobileToggle"><i class="bi bi-list"></i></button>
+      </div>
+    </div>
+
+    <!-- mobile nav (hidden by default) -->
+    <div id="mobileNav" style="display:none;background:linear-gradient(180deg, rgba(2,6,23,0.9), rgba(3,8,30,0.95));border-top:1px solid rgba(255,255,255,0.03);">
+      <div class="p-3 d-flex flex-column gap-2">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#hobbies">Hobbies</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-card" data-aos="fade-up">
+      <div class="row align-items-center gx-5">
+        <div class="col-lg-7">
+          <div class="hero-title">Arslan Khalid — <span style="color:var(--gold)">Full Stack Developer</span></div>
+          <p class="hero-tag">Django • Python • React • Bootstrap • Shopify • WordPress • MongoDB • SQLite3 • Flutter</p>
+          <p class="muted">I design and build scalable, production-grade web and mobile applications. My work focuses on backend robustness, clean front-end design and measurable results for businesses.</p>
+
+          <div class="mt-4 d-flex gap-3 flex-wrap">
+            <a href="#projects" class="btn-accent">View Work</a>
+            <a href="#contact" class="btn-outline-gold">Hire Me</a>
+          </div>
+
+          <div class="mt-4">
+            <small class="muted">Based: Pakistan • Available for remote work</small>
+          </div>
+        </div>
+
+        <div class="col-lg-5 d-none d-lg-block">
+          <!-- profile card -->
+          <div class="card-dark p-3">
+            <div style="display:flex;gap:1rem;align-items:center">
+              <img src="arslan.jpeg" alt="Profile photo" style="width:92px;height:92px;border-radius:12px;object-fit:cover;border:3px solid rgba(255,255,255,0.04)">
+              <div>
+                <div style="font-weight:700;font-size:1rem">Arslan Khalid</div>
+                <div class="muted" style="font-size:13px">Full Stack / Python Specialist</div>
+                <div style="margin-top:8px"><small class="muted">Email: <a href="mailto:arslankhalid2697@gmail.com" style="color:var(--accent)">arslankhalid2697@gmail.com</a></small></div>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <div style="font-size:13px" class="muted">Key focus:</div>
+              <ul style="margin-top:6px;margin-bottom:0;padding-left:1rem;color:#fff">
+                <li>Backend architecture & APIs (Django + DRF)</li>
+                <li>Frontend with React & Bootstrap</li>
+                <li>E-commerce (Shopify) & CMS (WordPress)</li>
+                <li>Databases: MongoDB, SQLite3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="content-section" data-aos="fade-up">
+    <div class="section-heading">
+      <div class="accent-line"></div>
+      <h2>About Me</h2>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="card-dark p-4">
+          <h3 style="color:var(--gold)">Professional Summary</h3>
+          <p class="muted">
+            I am a Full Stack Developer with strong expertise in backend engineering using Django and Python, and frontend proficiency in React, HTML/CSS and Bootstrap.
+            I build performant APIs, design scalable database schemas, and implement production-grade deployments. I also deliver custom Shopify stores and WordPress solutions.
+            Additionally, I have intermediate experience building cross-platform mobile apps with Flutter.
+          </p>
+
+          <h5 class="mt-3">What I bring</h5>
+          <ul>
+            <li>Clean, maintainable code and test-driven development</li>
+            <li>Performance-minded architecture and caching strategies</li>
+            <li>SEO & accessibility best practices for web projects</li>
+            <li>Hands-on experience with making apps and websites with different Ai tools</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="card-dark p-4">
+          <h5 style="color:var(--accent)">Contact & Links</h5>
+          <p class="muted mb-2"><i class="bi bi-envelope-fill"></i> <a href="mailto:arslankhalid2697@gmail.com" style="color:#fff"> arslankhalid2697@gmail.com</a></p>
+          <p class="muted mb-2"><i class="bi bi-geo-alt-fill"></i> Pakistan</p>
+          <p class="muted mb-2"><i class="bi bi-github"></i> <a href="https://github.com/mernstac" style="color:#fff"> github.com/mernstac</a></p>
+          <p class="muted mb-2"><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/arslan-khalid-8a5029255/" style="color:#fff"> linkedin.com/in/arslankhalid</a></p>
+
+          <div class="mt-3">
+            <a class="btn btn-sm btn-accent" href="Arslan.CV.pdf">Download Resume</a>
+            <a class="btn btn-sm btn-outline-gold" href="#contact">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="content-section" data-aos="fade-up">
+    <div class="section-heading"><div class="accent-line"></div><h2>Skills</h2></div>
+
+    <div class="row gy-4">
+      <div class="col-md-6">
+        <div class="card-dark p-4">
+          <h5 style="color:var(--gold)">Backend & Databases</h5>
+          <p class="muted mb-2">Django, Django REST Framework, Python</p>
+          <div class="mb-2"><small class="muted">Django</small>
+            <div class="skill-bar mt-2"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="mb-2"><small class="muted">Python</small>
+            <div class="skill-bar mt-2"><div class="skill-fill" style="width:94%"></div></div>
+          </div>
+          <div class="mb-2"><small class="muted">Databases (MongoDB / SQLite3)</small>
+            <div class="skill-bar mt-2"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-dark p-4">
+          <h5 style="color:var(--gold)">Frontend & Mobile</h5>
+          <p class="muted mb-2">React, Tailwind, Bootstrap, HTML/CSS, JavaScript, Flutter (mobile)</p>
+          <div class="mb-2"><small class="muted">React & Frontend</small>
+            <div class="skill-bar mt-2"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="mb-2"><small class="muted">Flutter (cross-platform)</small>
+            <div class="skill-bar mt-2"><div class="skill-fill" style="width:65%"></div></div>
+          </div>
+          <div class="mb-2"><small class="muted">Dev Tools</small>
+            <div class="skill-bar mt-2"><div class="skill-fill" style="width:82%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="content-section" data-aos="fade-up" style="margin-top: 80px;">
+    <div class="section-heading"><div class="accent-line"></div><h2>Experience</h2></div>
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="timeline p-3">
+          <div class="timeline-item">
+            <div class="card-dark p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <strong>Junior Full Stack Developer</strong>
+                  <div class="muted">Company Transect Tech — 2025 to Present</div>
+                </div>
+                <div class="muted">Project-based</div>
+              </div>
+              <p class="muted mt-2">Building and maintaining core Django services, designing APIs consumed by React dashboards, optimizing DB queries.</p>
+            </div>
+          </div>
+
+
+          <div class="timeline-item">
+            <div class="card-dark p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <strong>WordPress Developer</strong>
+                  <div class="muted">Agency Transect Tech— 2025 to Present</div>
+                </div>
+                <div class="muted">Project-based</div>
+              </div>
+              <p class="muted mt-2">Expert in WordPress development, custom plugin design, and creating high-performance e-commerce stores that boost sales, enhance user experience, and rank higher in search results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card-dark p-3">
+          <h5 style="color:var(--accent)">Certifications & Tools</h5>
+          <ul class="muted">
+            <li>Certified Django Developer </li>
+            <li>Certified WordPress Developer</li>
+            <li>Effeciency in sopify development</li>
+            <li>Frequently using different Ai tools</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="content-section" data-aos="fade-up" style="margin-top: 40px;">
+    <div class="section-heading"><div class="accent-line"></div><h2>Selected Projects (Personal)</h2></div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <article class="card-dark p-3">
+        <img src="Django.png" alt="Project: Fitness App" style="width:100%;border-radius:8px;object-fit:cover;margin-bottom:.6rem">
+        <h5>Full-stack Fitness website</h5>
+        <p class="muted small">Django + CSS + Bootstrap • sqllite3 • CRUD operations • Admin Dashboard</p>
+        <p class="muted">I specialize in developing full-stack websites that combine sleek, responsive front-end designs with powerful and scalable backend functionality. Using HTML, CSS, and Bootstrap, I craft visually appealing and user-friendly interfaces optimized for all devices. On the backend, I leverage Python to build robust, secure, and efficient application logic, while SQLite3 serves as a lightweight yet reliable database solution. This combination ensures fast performance, easy maintenance, and a smooth user experience from start to finish.</p>
+        <div class="mt-2 d-flex gap-2">
+          <a class="btn btn-sm btn-accent" href="#" aria-label="View demo">Available soon</a>
+          
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card-dark p-3">
+        <img src="React.png" alt="Project: React" style="width:100%;border-radius:8px;object-fit:cover;margin-bottom:.6rem">
+        <h5>DietBeacon (AI Assistant)</h5>
+        <p class="muted small">React • PWA format • Generative AI</p>
+        <p class="muted">DietBeacon is your personal nutritionist in your pocket — helping you eat smarter, live healthier, and reach your wellness goals effortlessly. Whether you want to lose weight, build muscle, or simply maintain a balanced diet, DietBeacon uses advanced AI and nutrition science to create personalized meal plans, track your progress, and keep you motivated.</p>
+        <div class="mt-2 d-flex gap-2">
+          <a class="btn btn-sm btn-accent" href="#">In progress</a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="card-dark p-3">
+        <img src="flutter.png" alt="Project: Shopify" style="width:100%;border-radius:8px;object-fit:cover;margin-bottom:.6rem">
+        <h5>DietBeacon Mobile App</h5>
+        <p class="muted small">Flutter • Performance • Generative AI</p>
+        <p class="muted">DietBeacon is your AI-powered nutrition guide—offering personalized meal plans, calorie tracking, and healthy recipes to help you reach your goals effortlessly.</p>
+        <div class="mt-2 d-flex gap-2">
+          <a class="btn btn-sm btn-accent" href="#">In Progress</a>
+        </div>
+      </article>
+
+     
+
+      <!-- Project 5 -->
+      <article class="card-dark p-3">
+        <img src="AI.png" alt="Project: AI tool" style="width:100%;border-radius:8px;object-fit:cover;margin-bottom:.6rem">
+        <h5>TravelWithArslan (made by Trae Ai tool)</h5>
+        <p class="muted small">Trae • AI Tool • Travel</p>
+        <p class="muted">TravelWithArslan is an AI-crafted travel platform that inspires and guides adventurers with curated destinations, travel tips, and personalized itineraries for unforgettable journeys.</p>
+        <div class="mt-2 d-flex gap-2">
+          <a class="btn btn-sm btn-accent" href="https://mernstac.github.io/Travel-website/">Demo</a>
+        </div>
+      </article>
+
+      
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies" class="content-section" data-aos="fade-up">
+    <div class="section-heading"><div class="accent-line"></div><h2>Hobbies & Interests</h2></div>
+
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="hobby"><i class="bi bi-cpu-fill" style="font-size:1.25rem;color:var(--accent)"></i><div><strong>AI Tools </strong><div class="muted small">Experiment on different Tools and check working and finding best</div></div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="hobby"><i class="bi bi-trophy-fill" style="font-size:1.25rem;color:var(--accent)"></i><div><strong>Cricket</strong><div class="muted small">Strategy & Pressure handling</div></div></div>
+      </div>
+      <div class="col-md-4">
+        <div class="hobby"><i class="bi bi-brush" style="font-size:1.25rem;color:var(--accent)"></i><div><strong>Canva design</strong><div class="muted small">Designing logos, Post and CV</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="content-section" data-aos="fade-up">
+  <div class="section-heading">
+    <div class="accent-line"></div>
+    <h2>Contact</h2>
+  </div>
+
+  <div class="card-dark p-4 contact-card">
+    <!-- Contact Form -->
+    <form id="contactForm" action="https://formspree.io/f/xpwlobdd" method="POST">
+      <div class="row g-3">
+        
+        <!-- Name -->
+        <div class="col-md-6">
+          <label class="form-label muted">Name</label>
+          <input class="form-control" name="name" placeholder="Your name" required>
+        </div>
+
+        <!-- Email -->
+        <div class="col-md-6">
+          <label class="form-label muted">Email</label>
+          <input class="form-control" name="_replyto" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <!-- Message -->
+        <div class="col-12">
+          <label class="form-label muted">Message</label>
+          <textarea class="form-control" name="message" rows="5" placeholder="Describe your project or inquiry..." required></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="col-12 d-flex gap-2">
+          <button type="submit" class="btn btn-accent">Send Message</button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Success Message -->
+    <div id="contactMsg" style="display:none;margin-top:12px;" class="muted small">
+      Thanks — your message has been sent. I will get back to you soon.
+    </div>
+  </div>
+</section>
+
+<!-- Optional JavaScript for Success Message -->
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        this.reset();
+        document.getElementById('contactMsg').style.display = 'block';
+      }
+    }).catch(error => console.error('Error:', error));
+  });
+</script>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div>
+        <strong style="color:gold">Arslan Khalid</strong><div class="muted small">Full Stack Developer — Django & React</div>
+      </div>
+      <div class="d-flex gap-3 align-items-center">
+        <a href="https://github.com/mernstac" class="muted"><i class="bi bi-github" style="font-size:1.2rem;color:#fff"></i></a>
+        <a href="https://www.linkedin.com/in/arslan-khalid-8a5029255/" class="muted"><i class="bi bi-linkedin" style="font-size:1.2rem;color:#fff"></i></a>
+             </div>
+    </div>
+    <div style="margin-top:1rem;color:gold;font-size:.9rem">© 2025 Arslan Khalid. All rights reserved.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({duration:800,once:true});
+
+    // Mobile nav toggle
+    document.getElementById('mobileToggle').addEventListener('click', function(){
+      const mn = document.getElementById('mobileNav');
+      mn.style.display = (mn.style.display === 'none' || mn.style.display === '') ? 'block' : 'none';
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Demo contact form behavior (non-functional placeholder)
+    const contactForm = document.getElementById('contactForm');
+    const contactMsg = document.getElementById('contactMsg');
+    contactForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      contactMsg.style.display = 'block';
+      contactForm.reset();
+    });
+
+    // Mailto quick fallback
+    document.getElementById('mailtoBtn').addEventListener('click', function(){
+      const subject = encodeURIComponent('Project inquiry');
+      const body = encodeURIComponent('Hi Arslan,%0D%0A%0D%0AI would like to discuss...');
+      location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+
+  <!-- Bootstrap JS (optional for components) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
